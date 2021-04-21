@@ -57,13 +57,13 @@ struct ContentView: View {
     }
     
     func onTopBarMenuBtnPressed(){
-        blMenuVisible=true
+        blMenuVisible.toggle()
         fOpacidadPrincipal=0.3
         //sMiTexto="ACABAS DE PRESIONAR EL MENU!!!!"
     }
     
     func btnMenuCerrarPressed() {
-        blMenuVisible=false
+        blMenuVisible.toggle()
         fOpacidadPrincipal=1.0
     }
 }
