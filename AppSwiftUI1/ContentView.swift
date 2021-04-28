@@ -13,6 +13,7 @@ struct ContentView: View {
     @State var sTitleTexto="AppSwiftUI1"
     @State var blMenuVisible=false
     @State var fOpacidadPrincipal=1.0
+    @State var blPostsViewVisile=true
     
     var body: some View {
         GeometryReader { geometry in
@@ -38,12 +39,20 @@ struct ContentView: View {
                 
                 
                 if blMenuVisible{
-                    MenuView(onBtnMenuCerrarPressed: btnMenuCerrarPressed)
+                    MenuView(onBtnMenuPressed: btnMenuPressed)
                         .frame(width: geometry.size.width*0.8, height: geometry.size.height*0.8)
                         .background(Color.yellow)
                 }
                 
-                
+                if blPostsViewVisile{
+                    VStack{
+                        Spacer()
+                            .frame(width: geometry.size.width, height: geometry.size.height*0.1)
+                        PostsView()
+                            .frame(width: geometry.size.width, height: geometry.size.height*0.9)
+                            .background(Color.red)
+                    }.frame(width: geometry.size.width, height: geometry.size.height)
+                }
             }
             
         }
@@ -62,9 +71,16 @@ struct ContentView: View {
         //sMiTexto="ACABAS DE PRESIONAR EL MENU!!!!"
     }
     
-    func btnMenuCerrarPressed() {
-        blMenuVisible.toggle()
-        fOpacidadPrincipal=1.0
+    func btnMenuPressed(idmenu:String) {
+        if idmenu=="Cerrar"{
+            blMenuVisible.toggle()
+            fOpacidadPrincipal=1.0
+        }
+        else if idmenu=="Posts"{
+            blPostsViewVisile.toggle()
+            
+        }
+        
     }
 }
 

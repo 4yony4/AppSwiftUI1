@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     
-    var onBtnMenuCerrarPressed:()->Void = {}
+    var onBtnMenuPressed:(_ idmenu:String)->Void = {_ in }
     
     var body: some View {
         VStack{
@@ -32,19 +32,19 @@ struct MenuView: View {
     }
     
     func actionPerfil() {
-        
+        onBtnMenuPressed("Perfil")
     }
     func actionPosts() {
-        
+        onBtnMenuPressed("Posts")
     }
     func actionAjustes() {
-        
+        onBtnMenuPressed("Ajustes")
     }
     func actionAmigos() {
-        
+        onBtnMenuPressed("Amigos")
     }
     func actionCerrar() {
-        onBtnMenuCerrarPressed()
+        onBtnMenuPressed("Cerrar")
     }
 
 }
